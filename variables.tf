@@ -11,3 +11,8 @@ variable "zone" {
   type = string
   default = "us-east1-d"
 }
+
+variable "workers" {
+  type = number
+  default = 3
+}
