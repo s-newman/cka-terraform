@@ -31,6 +31,8 @@ You should now be ready to deploy!
 terraform apply
 ```
 
+Give it a few minutes before you log in to the instances. On first boot, they will perform a full system upgrade and reboot, which can take a little while sometimes.
+
 As is normal for Terraform projects, once you're all done you can destroy the resources.
 
 ```shell script
