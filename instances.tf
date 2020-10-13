@@ -21,7 +21,7 @@ resource "google_compute_instance" "master" {
 
 resource "google_compute_instance" "worker" {
   count = var.workers
-  name = "worker.${count.index}"
+  name = "worker-${count.index}"
   machine_type = "e2-standard-2"
 
   metadata_startup_script = file("${path.cwd}/startup.sh")
