@@ -15,16 +15,24 @@ Then, just make sure you're logged in to the right GCP account.
 gcloud auth application-default login
 ```
 
-Next, check out the `provider` block at the top of `main.tf` and make sure the settings are correct for your setup. You'll have to change the project at a minimum, and unless you're on the east coast of North America, you'll probably want to change the region and zone as well.
+Next, check out the variable defaults in the `variables.tf` file to make sure they're appropriate for your environment. If you're not on the east coast of North America, you'll probably want to change the region and zone. You can provide values for the variables in a few ways - see [the Terraform documentation](https://www.terraform.io/docs/configuration/variables.html#assigning-values-to-root-module-variables) for more information.
+
+Note that if you don't provide a value for the `project` variable, you'll be prompted for you project ID whenever you run a `terraform` command.
+
+Initialize your Terraform project
+
+```shell script
+terraform init
+```
 
 You should now be ready to deploy!
 
-```shell
+```shell script
 terraform apply
 ```
 
 As is normal for Terraform projects, once you're all done you can destroy the resources.
 
-```shell
+```shell script
 terraform destroy
 ```
