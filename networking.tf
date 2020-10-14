@@ -13,8 +13,9 @@ resource "google_compute_firewall" "k8s_allow_internal" {
   name = "k8s-allow-internal"
   description = "Allow all traffic internally."
   network = google_compute_network.k8s_net.id
-  direction = "EGRESS"
-  destination_ranges = ["0.0.0.0/0"]
+  direction = "INGRESS"
+  destination_ranges = [
+    "0.0.0.0/0"]
 
   allow {
     protocol = "all"
