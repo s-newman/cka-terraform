@@ -10,12 +10,11 @@ resource "google_compute_subnetwork" "k8s_subnet" {
 }
 
 resource "google_compute_firewall" "k8s_allow_internal" {
-  name        = "k8s-allow-internal"
-  description = "Allow all traffic internally."
-  network     = google_compute_network.k8s_net.id
-  direction   = "INGRESS"
-  destination_ranges = [
-  "0.0.0.0/0"]
+  name          = "k8s-allow-internal"
+  description   = "Allow all traffic internally."
+  network       = google_compute_network.k8s_net.id
+  direction     = "INGRESS"
+  source_ranges = ["0.0.0.0/0"]
 
   allow {
     protocol = "all"
@@ -23,12 +22,11 @@ resource "google_compute_firewall" "k8s_allow_internal" {
 }
 
 resource "google_compute_firewall" "k8s_allow_ingress" {
-  name        = "k8s-allow-ingress"
-  description = "Allow inbound SSH, Kubernetes API, and ICMP traffic from external sources."
-  network     = google_compute_network.k8s_net.id
-  direction   = "INGRESS"
-  source_ranges = [
-  "0.0.0.0/0"]
+  name          = "k8s-allow-ingress"
+  description   = "Allow inbound SSH, Kubernetes API, and ICMP traffic from external sources."
+  network       = google_compute_network.k8s_net.id
+  direction     = "INGRESS"
+  source_ranges = ["0.0.0.0/0"]
 
   allow {
     protocol = "icmp"
@@ -36,9 +34,7 @@ resource "google_compute_firewall" "k8s_allow_ingress" {
 
   allow {
     protocol = "tcp"
-    ports = [
-      "22",
-    "6443"]
+    ports    = ["22", "6443"]
   }
 }
 
