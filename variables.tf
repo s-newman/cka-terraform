@@ -3,16 +3,16 @@ variable "project" {
 }
 
 variable "region" {
-  type = string
+  type    = string
   default = "us-east1"
 }
 
 variable "zone" {
-  type = string
+  type    = string
   default = "us-east1-d"
 }
 
 variable "workers" {
-  type = number
+  type    = number
   default = 3
 }
