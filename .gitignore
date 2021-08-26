@@ -1,6 +1,9 @@
 # Also ignore .tfvars
 *.tfvars
 
+# Don't care about the lockfile
+/.terraform.lock.hcl
+
 # --- Terraform.gitignore ------------------------------------------------------
 
 # Local .terraform directories
